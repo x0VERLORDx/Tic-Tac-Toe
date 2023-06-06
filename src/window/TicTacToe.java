@@ -10,8 +10,13 @@ public class TicTacToe implements ActionListener {
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
     JPanel button_panel = new JPanel();
+    JPanel score_panel = new JPanel();
     JLabel textField = new JLabel();
+    JLabel scoreField = new JLabel();
+    JButton resetButton = new JButton();
     JButton[] buttons = new JButton[9];
+    int xWin = 0;
+    int oWin = 0;
     boolean xTurn = true;
     public TicTacToe(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,11 +32,24 @@ public class TicTacToe implements ActionListener {
         textField.setText("Tic-Tac-Toe");
         textField.setOpaque(true);
 
+        scoreField.setBackground(new Color(25,25,25));
+        scoreField.setForeground(new Color(25,255,0));
+        scoreField.setFont(new Font("Ink Free",Font.BOLD,75));
+        scoreField.setHorizontalAlignment(JLabel.CENTER);
+        scoreField.setText("X " + xWin + " : " + oWin + " O");
+        scoreField.setOpaque(true);
+
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,600,100);
+        score_panel.setLayout(new GridLayout(1,3));
+        score_panel.setBounds(0,0,600,100);
 
         button_panel.setLayout(new GridLayout(3,3));
         button_panel.setBackground(new Color(150,150,150));
+
+        resetButton.setFont(new Font("MV Boli",Font.BOLD,50));
+        resetButton.setText("Reset");
+        resetButton.setFocusable(false);
 
         for (int i =0;i<9;i++) {
             buttons[i] = new JButton();
@@ -42,8 +60,12 @@ public class TicTacToe implements ActionListener {
         }
         
         title_panel.add(textField);
+        score_panel.add(scoreField);
+        score_panel.add(resetButton);
         frame.add(title_panel,BorderLayout.NORTH);
-        frame.add(button_panel);
+        frame.add(button_panel,BorderLayout.CENTER);
+        frame.add(score_panel,BorderLayout.SOUTH);
+
 
         ImageIcon image = new ImageIcon(Objects.requireNonNull(TicTacToe.class.getResource("/logo.png")));
         frame.setIconImage(image.getImage());
