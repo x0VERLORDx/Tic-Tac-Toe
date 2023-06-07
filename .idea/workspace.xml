@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="add score panel">
+    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="add working score panel and reset button">
+      <change afterPath="$PROJECT_DIR$/src/oSound2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resetSound3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/winSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/window/Sounds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/window/StartScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/xSound2.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +49,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OVERLORD\IdeaProjects\Tic-Tac-Toe Game\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\OVERLORD\IdeaProjects\Tic-Tac-Toe Game\src" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686083243559</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add working score panel and reset button">
+      <created>1686135117175</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686135117175</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +100,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tic-Tac-Toe" />
     <MESSAGE value="add score panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="add score panel" />
+    <MESSAGE value="add working score panel and reset button" />
+    <option name="LAST_COMMIT_MESSAGE" value="add working score panel and reset button" />
   </component>
 </project>

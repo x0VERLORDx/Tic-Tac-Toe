@@ -1,10 +1,14 @@
 package window;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Objects;
+
 
 public class TicTacToe implements ActionListener {
     JFrame frame = new JFrame();
@@ -15,6 +19,8 @@ public class TicTacToe implements ActionListener {
     JLabel scoreField = new JLabel();
     JButton resetButton = new JButton();
     JButton[] buttons = new JButton[9];
+
+
     int xWin = 0;
     int oWin = 0;
     boolean xTurn = true;
@@ -59,15 +65,14 @@ public class TicTacToe implements ActionListener {
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
-        
+
+
         title_panel.add(textField);
         score_panel.add(scoreField);
         score_panel.add(resetButton);
         frame.add(title_panel,BorderLayout.NORTH);
         frame.add(button_panel,BorderLayout.CENTER);
         frame.add(score_panel,BorderLayout.SOUTH);
-
-
         ImageIcon image = new ImageIcon(Objects.requireNonNull(TicTacToe.class.getResource("/logo.png")));
         frame.setIconImage(image.getImage());
         try {
@@ -86,6 +91,11 @@ public class TicTacToe implements ActionListener {
                 buttons[i].setEnabled(true);
                 buttons[i].setText("");
             }
+            try {
+                Sounds.playResetSound();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         for (JButton button:buttons) {
            if (e.getSource()==button){
@@ -93,16 +103,25 @@ public class TicTacToe implements ActionListener {
                     if (xTurn){
                         button.setForeground(new Color(255,0,0));
                         button.setText("X");
+                        try {
+                            Sounds.playXSound();
+                        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                            throw new RuntimeException(ex);
+                        }
                         xTurn = false;
                     }else{
                         button.setForeground(new Color(0,0,255));
                         button.setText("O");
+                        try {
+                            Sounds.playOSound();
+                        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                            throw new RuntimeException(ex);
+                        }
                         xTurn = true;
                     }
                 }
             }
         }
-        Turn();
         Check();
 
     }
@@ -114,58 +133,63 @@ public class TicTacToe implements ActionListener {
         }
     }
     public void Check(){
-
         if(
                 buttons[0].getText().equals(buttons[1].getText()) &&
                         buttons[0].getText().equals(buttons[2].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0);
-        }
-        if(
-                buttons[3].getText().equals(buttons[4].getText()) &&
-                        buttons[3].getText().equals(buttons[5].getText())&&!buttons[3].getText().isEmpty()
-        ) {
-            whoWins(3);
-        }
-        if(
-                buttons[6].getText().equals(buttons[7].getText()) &&
-                        buttons[6].getText().equals(buttons[8].getText())&&!buttons[6].getText().isEmpty()
-        ) {
-            whoWins(6);
+            whoWins();
         }
         if(
                 buttons[0].getText().equals(buttons[3].getText()) &&
                         buttons[0].getText().equals(buttons[6].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0);
-        }
-        if(
-                buttons[1].getText().equals(buttons[4].getText()) &&
-                        buttons[1].getText().equals(buttons[7].getText())&&!buttons[1].getText().isEmpty()
-        ) {
-            whoWins(1);
-        }
-        if(
-                buttons[2].getText().equals(buttons[5].getText()) &&
-                        buttons[2].getText().equals(buttons[8].getText())&&!buttons[2].getText().isEmpty()
-        ) {
-            whoWins(2);
+            whoWins();
         }
         if(
                 buttons[0].getText().equals(buttons[4].getText()) &&
                         buttons[0].getText().equals(buttons[8].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0);
+            whoWins();
         }
         if(
-                buttons[0].getText().equals(buttons[4].getText()) &&
-                        buttons[0].getText().equals(buttons[6].getText())&&!buttons[0].getText().isEmpty()
+                buttons[1].getText().equals(buttons[4].getText()) &&
+                        buttons[1].getText().equals(buttons[7].getText())&&!buttons[1].getText().isEmpty()
         ) {
-            whoWins(2);
+            whoWins();
         }
+        if(
+                buttons[2].getText().equals(buttons[5].getText()) &&
+                        buttons[2].getText().equals(buttons[8].getText())&&!buttons[2].getText().isEmpty()
+        ) {
+            whoWins();
+        }
+        if(
+                buttons[2].getText().equals(buttons[4].getText()) &&
+                        buttons[2].getText().equals(buttons[6].getText())&&!buttons[2].getText().isEmpty()
+        ) {
+            whoWins();
+        }
+        if(
+                buttons[3].getText().equals(buttons[4].getText()) &&
+                        buttons[3].getText().equals(buttons[5].getText())&&!buttons[3].getText().isEmpty()
+        ) {
+            whoWins();
+        }
+        if(
+                buttons[6].getText().equals(buttons[7].getText()) &&
+                        buttons[6].getText().equals(buttons[8].getText())&&!buttons[6].getText().isEmpty()
+        ) {
+            whoWins();
+        }
+        Turn();
     }
-    public void whoWins(int a){
-        if (buttons[a].getText().equals("X")){
+    public void whoWins(){
+        try {
+            Sounds.playWinSound();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            throw new RuntimeException(ex);
+        }
+        if (!xTurn){
             xWins();
         }else {
             oWins();
@@ -173,7 +197,6 @@ public class TicTacToe implements ActionListener {
     }
     public void xWins() {
         xWin++;
-        System.out.println(xWin);
         scoreField.setText("X " + xWin + " : " + oWin + " O");
         for(int i=0;i<9;i++) {
             buttons[i].setEnabled(false);
