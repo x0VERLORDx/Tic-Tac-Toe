@@ -33,7 +33,7 @@ public class TicTacToe extends Frame {
         resetButton.setFocusable(false);
         resetButton.addActionListener(this);
 
-        createButtons(9);
+        createButtons(9,75);
 
         score_panel.add(scoreField);
         score_panel.add(resetButton);

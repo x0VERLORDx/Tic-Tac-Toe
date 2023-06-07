@@ -44,12 +44,12 @@ public abstract class Frame extends JFrame implements ActionListener {
 
     }
 
-    public void createButtons(int numberOfButtons){
+    public void createButtons(int numberOfButtons, int fontSize){
         buttons = new JButton[numberOfButtons];
         for (int i =0;i<buttons.length;i++) {
             buttons[i] = new JButton();
             button_panel.add(buttons[i]);
-            buttons[i].setFont(new Font("MV Boli",Font.BOLD,50));
+            buttons[i].setFont(new Font("MV Boli",Font.BOLD,fontSize));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
