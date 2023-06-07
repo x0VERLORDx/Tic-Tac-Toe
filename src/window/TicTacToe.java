@@ -34,7 +34,7 @@ public class TicTacToe implements ActionListener {
 
         scoreField.setBackground(new Color(25,25,25));
         scoreField.setForeground(new Color(25,255,0));
-        scoreField.setFont(new Font("Ink Free",Font.BOLD,75));
+        scoreField.setFont(new Font("Ink Free",Font.BOLD,50));
         scoreField.setHorizontalAlignment(JLabel.CENTER);
         scoreField.setText("X " + xWin + " : " + oWin + " O");
         scoreField.setOpaque(true);
@@ -50,6 +50,7 @@ public class TicTacToe implements ActionListener {
         resetButton.setFont(new Font("MV Boli",Font.BOLD,50));
         resetButton.setText("Reset");
         resetButton.setFocusable(false);
+        resetButton.addActionListener(this);
 
         for (int i =0;i<9;i++) {
             buttons[i] = new JButton();
@@ -79,6 +80,13 @@ public class TicTacToe implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource()==resetButton){
+            for (int i = 0; i < 9; i++) {
+                buttons[i].setEnabled(true);
+                buttons[i].setText("");
+            }
+        }
         for (JButton button:buttons) {
            if (e.getSource()==button){
                 if (button.getText().isBlank()) {
@@ -111,82 +119,71 @@ public class TicTacToe implements ActionListener {
                 buttons[0].getText().equals(buttons[1].getText()) &&
                         buttons[0].getText().equals(buttons[2].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0,1,2);
+            whoWins(0);
         }
         if(
                 buttons[3].getText().equals(buttons[4].getText()) &&
                         buttons[3].getText().equals(buttons[5].getText())&&!buttons[3].getText().isEmpty()
         ) {
-            whoWins(3,4,5);
+            whoWins(3);
         }
         if(
                 buttons[6].getText().equals(buttons[7].getText()) &&
                         buttons[6].getText().equals(buttons[8].getText())&&!buttons[6].getText().isEmpty()
         ) {
-            whoWins(6,7,8);
+            whoWins(6);
         }
         if(
                 buttons[0].getText().equals(buttons[3].getText()) &&
                         buttons[0].getText().equals(buttons[6].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0,3,6);
+            whoWins(0);
         }
         if(
                 buttons[1].getText().equals(buttons[4].getText()) &&
                         buttons[1].getText().equals(buttons[7].getText())&&!buttons[1].getText().isEmpty()
         ) {
-            whoWins(1,4,7);
+            whoWins(1);
         }
         if(
                 buttons[2].getText().equals(buttons[5].getText()) &&
                         buttons[2].getText().equals(buttons[8].getText())&&!buttons[2].getText().isEmpty()
         ) {
-            whoWins(2,5,8);
+            whoWins(2);
         }
         if(
                 buttons[0].getText().equals(buttons[4].getText()) &&
                         buttons[0].getText().equals(buttons[8].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(0,4,8);
+            whoWins(0);
         }
         if(
                 buttons[0].getText().equals(buttons[4].getText()) &&
                         buttons[0].getText().equals(buttons[6].getText())&&!buttons[0].getText().isEmpty()
         ) {
-            whoWins(2,4,6);
+            whoWins(2);
         }
     }
-    public void whoWins(int a,int b,int c){
+    public void whoWins(int a){
         if (buttons[a].getText().equals("X")){
-            xWins(a,b,c);
+            xWins();
         }else {
-            oWins(a,b,c);
+            oWins();
         }
     }
-    public void xWins(int a,int b,int c) {
-        buttons[a].setBackground(Color.GREEN);
-        buttons[b].setBackground(Color.GREEN);
-        buttons[c].setBackground(Color.GREEN);
-
+    public void xWins() {
+        xWin++;
+        System.out.println(xWin);
+        scoreField.setText("X " + xWin + " : " + oWin + " O");
         for(int i=0;i<9;i++) {
             buttons[i].setEnabled(false);
         }
         textField.setText("X wins");
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//        for(int i=0;i<9;i++) {
-//            buttons[i].setEnabled(true);
-//            buttons[i].setText("");
-//        }
-    }
-    public void oWins(int a,int b,int c) {
-        buttons[a].setBackground(Color.GREEN);
-        buttons[b].setBackground(Color.GREEN);
-        buttons[c].setBackground(Color.GREEN);
 
+    }
+    public void oWins() {
+        oWin++;
+        scoreField.setText("X " + xWin + " : " + oWin + " O");
         for(int i=0;i<9;i++) {
             buttons[i].setEnabled(false);
         }
