@@ -13,6 +13,12 @@ public abstract class Frame extends JFrame implements ActionListener {
     JPanel button_panel = new JPanel();
     JButton[] buttons;
     JLabel textField = new JLabel();
+    JPanel score_panel = new JPanel();
+    JLabel scoreField = new JLabel();
+    JButton resetButton = new JButton();
+
+    int xWin = 0;
+    int oWin = 0;
     public Frame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
@@ -53,6 +59,30 @@ public abstract class Frame extends JFrame implements ActionListener {
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
+    }
+
+    public void createScorePanel(){
+
+        scoreField.setBackground(new Color(25,25,25));
+        scoreField.setForeground(new Color(25,255,0));
+        scoreField.setFont(new Font("Ink Free",Font.BOLD,50));
+        scoreField.setHorizontalAlignment(JLabel.CENTER);
+        scoreField.setText("X " + xWin + " : " + oWin + " O");
+        scoreField.setOpaque(true);
+
+        score_panel.setLayout(new GridLayout(1,2));
+        score_panel.setBounds(0,0,600,100);
+
+        button_panel.setLayout(new GridLayout(3,3));
+
+        resetButton.setFont(new Font("MV Boli",Font.BOLD,50));
+        resetButton.setText("Reset");
+        resetButton.setFocusable(false);
+        resetButton.addActionListener(this);
+
+        score_panel.add(scoreField);
+        score_panel.add(resetButton);
+        frame.add(score_panel,BorderLayout.SOUTH);
     }
 
     @Override

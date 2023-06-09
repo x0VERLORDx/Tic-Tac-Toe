@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="add sound effects and StartScreen. Check rework">
-      <change afterPath="$PROJECT_DIR$/src/window/Frame.java" afterDir="false" />
+    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="buttons fontSize fix">
+      <change afterPath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/Frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/StartScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/TicTacToe.java" afterDir="false" />
     </list>
@@ -86,7 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686168749963</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="constructor decomposition">
+      <created>1686173777423</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686173777423</updated>
+    </task>
+    <task id="LOCAL-00006" summary="buttons fontSize fix">
+      <created>1686173965229</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686173965229</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +119,8 @@
     <MESSAGE value="add score panel" />
     <MESSAGE value="add working score panel and reset button" />
     <MESSAGE value="add sound effects and StartScreen. Check rework" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sound effects and StartScreen. Check rework" />
+    <MESSAGE value="constructor decomposition" />
+    <MESSAGE value="buttons fontSize fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="buttons fontSize fix" />
   </component>
 </project>

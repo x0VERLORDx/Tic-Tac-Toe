@@ -7,39 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 public class TicTacToe extends Frame {
-    JPanel score_panel = new JPanel();
-    JLabel scoreField = new JLabel();
-    JButton resetButton = new JButton();
-    int xWin = 0;
-    int oWin = 0;
     boolean xTurn = true;
     public TicTacToe(){
         frame.setLayout(new BorderLayout());
-
-        scoreField.setBackground(new Color(25,25,25));
-        scoreField.setForeground(new Color(25,255,0));
-        scoreField.setFont(new Font("Ink Free",Font.BOLD,50));
-        scoreField.setHorizontalAlignment(JLabel.CENTER);
-        scoreField.setText("X " + xWin + " : " + oWin + " O");
-        scoreField.setOpaque(true);
-
-        score_panel.setLayout(new GridLayout(1,2));
-        score_panel.setBounds(0,0,600,100);
-
-        button_panel.setLayout(new GridLayout(3,3));
-
-        resetButton.setFont(new Font("MV Boli",Font.BOLD,50));
-        resetButton.setText("Reset");
-        resetButton.setFocusable(false);
-        resetButton.addActionListener(this);
-
+        createScorePanel();
         createButtons(9,75);
-
-        score_panel.add(scoreField);
-        score_panel.add(resetButton);
         frame.add(title_panel,BorderLayout.NORTH);
         frame.add(button_panel,BorderLayout.CENTER);
-        frame.add(score_panel,BorderLayout.SOUTH);
         Turn();
     }
 

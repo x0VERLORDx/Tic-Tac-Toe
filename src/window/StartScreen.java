@@ -11,5 +11,9 @@ public class StartScreen extends Frame {
             this.frame.setVisible(false);
             new TicTacToe();
         }
+        if (e.getSource() == buttons[1]) {
+            this.frame.setVisible(false);
+            new AdvanceTicTacToe();
+        }
     }
 }
