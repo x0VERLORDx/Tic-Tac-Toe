@@ -43,7 +43,7 @@ public abstract class Frame extends JFrame implements ActionListener {
         title_panel.add(textField);
 
         frame.add(title_panel,BorderLayout.NORTH);
-        frame.add(button_panel,BorderLayout.CENTER);
+
 
         ImageIcon image = new ImageIcon(Objects.requireNonNull(TicTacToe.class.getResource("/logo.png")));
         frame.setIconImage(image.getImage());
@@ -59,9 +59,10 @@ public abstract class Frame extends JFrame implements ActionListener {
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
+        frame.add(button_panel,BorderLayout.CENTER);
     }
 
-    public void createScorePanel(){
+    public void createScorePanel(int width){
 
         scoreField.setBackground(new Color(25,25,25));
         scoreField.setForeground(new Color(25,255,0));
@@ -71,7 +72,7 @@ public abstract class Frame extends JFrame implements ActionListener {
         scoreField.setOpaque(true);
 
         score_panel.setLayout(new GridLayout(1,2));
-        score_panel.setBounds(0,0,600,100);
+        score_panel.setBounds(0,500,width,100);
 
         button_panel.setLayout(new GridLayout(3,3));
 

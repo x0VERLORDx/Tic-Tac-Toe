@@ -10,7 +10,7 @@ public class TicTacToe extends Frame {
     boolean xTurn = true;
     public TicTacToe(){
         frame.setLayout(new BorderLayout());
-        createScorePanel();
+        createScorePanel(600);
         createButtons(9,75);
         frame.add(title_panel,BorderLayout.NORTH);
         frame.add(button_panel,BorderLayout.CENTER);
