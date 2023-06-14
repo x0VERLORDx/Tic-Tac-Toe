@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="modify AdvanceTicTacToe panel">
+    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="AdvanceTicTacToe add side panels">
+      <change afterPath="$PROJECT_DIR$/src/window/DnDParts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" afterDir="false" />
     </list>
@@ -111,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686680448378</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="AdvanceTicTacToe add side panels">
+      <created>1686746938475</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686746938475</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +142,7 @@
     <MESSAGE value="buttons fontSize fix" />
     <MESSAGE value="add AdvanceTicTacToe class, move score panel creation to abstract class" />
     <MESSAGE value="modify AdvanceTicTacToe panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify AdvanceTicTacToe panel" />
+    <MESSAGE value="AdvanceTicTacToe add side panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="AdvanceTicTacToe add side panels" />
   </component>
 </project>

@@ -7,7 +7,7 @@ public class AdvanceTicTacToe extends Frame {
     Border border = BorderFactory.createLineBorder(new Color(50, 50, 50),1);
     JLayeredPane field = new JLayeredPane();
     JPanel[] fieldParts = new JPanel[9];
-    JLabel[] xParts = new JLabel[9];
+    DnDParts[] xParts = new DnDParts[9];
     JLabel[] oParts = new JLabel[9];
     JLayeredPane xPanel = new JLayeredPane();
     JLayeredPane oPanel = new JLayeredPane();
@@ -25,7 +25,7 @@ public class AdvanceTicTacToe extends Frame {
         oPanel.setPreferredSize(new Dimension(200,100));
 
         for (int i = 2;i >= 0;i--) {
-            xParts[i] = new JLabel();
+            xParts[i] = new DnDParts();
             xParts[i].setOpaque(true);
             xParts[i].setBounds(15 + 60 * i, 5 + 15*i,100,100);
             xParts[i].setFont(new Font("MV Boli",Font.BOLD,75));
@@ -39,7 +39,7 @@ public class AdvanceTicTacToe extends Frame {
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 5;i > 2;i--) {
-            xParts[i] = new JLabel();
+            xParts[i] = new DnDParts();
             xParts[i].setOpaque(true);
             xParts[i].setBounds(15 + 60 * (i%3), 90 + 15*i,100,100);
             xParts[i].setFont(new Font("MV Boli",Font.BOLD,50));
@@ -53,7 +53,7 @@ public class AdvanceTicTacToe extends Frame {
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 8;i > 5;i--) {
-            xParts[i] = new JLabel();
+            xParts[i] = new DnDParts();
             xParts[i].setOpaque(true);
             xParts[i].setBounds(15 + 60 * (i%3), 175 + 15*i,100,100);
             xParts[i].setFont(new Font("MV Boli",Font.BOLD,25));
