@@ -25,86 +25,32 @@ public class AdvanceTicTacToe extends Frame {
         oPanel.setPreferredSize(new Dimension(200,100));
 
         for (int i = 2;i >= 0;i--) {
-            xParts[i] = new DnDParts();
-            xParts[i].setOpaque(true);
-            xParts[i].setBounds(15 + 60 * i, 5 + 15*i,100,100);
-            xParts[i].setFont(new Font("MV Boli",Font.BOLD,75));
-            xParts[i].setText("X");
-            xParts[i].setHorizontalAlignment(JLabel.CENTER);
-            xParts[i].setVerticalAlignment(JLabel.CENTER);
-            xParts[i].setBackground(new Color(150,150,150));
-            xParts[i].setForeground(Color.RED);
-            xParts[i].setBorder(border);
+            xParts[i] = new DnDParts(15 + 60 * i, 5 + 15*i,75,border,Color.RED, "X");
             xPanel.add(xParts[i]);
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 5;i > 2;i--) {
-            xParts[i] = new DnDParts();
-            xParts[i].setOpaque(true);
-            xParts[i].setBounds(15 + 60 * (i%3), 90 + 15*i,100,100);
-            xParts[i].setFont(new Font("MV Boli",Font.BOLD,50));
-            xParts[i].setText("X");
-            xParts[i].setHorizontalAlignment(JLabel.CENTER);
-            xParts[i].setVerticalAlignment(JLabel.CENTER);
-            xParts[i].setBackground(new Color(150,150,150));
-            xParts[i].setForeground(Color.RED);
-            xParts[i].setBorder(border);
+            xParts[i] = new DnDParts(15 + 60 * (i%3), 90 + 15*i,50,border,Color.RED, "X");
             xPanel.add(xParts[i]);
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 8;i > 5;i--) {
-            xParts[i] = new DnDParts();
-            xParts[i].setOpaque(true);
-            xParts[i].setBounds(15 + 60 * (i%3), 175 + 15*i,100,100);
-            xParts[i].setFont(new Font("MV Boli",Font.BOLD,25));
-            xParts[i].setText("X");
-            xParts[i].setHorizontalAlignment(JLabel.CENTER);
-            xParts[i].setVerticalAlignment(JLabel.CENTER);
-            xParts[i].setBackground(new Color(150,150,150));
-            xParts[i].setForeground(Color.RED);
-            xParts[i].setBorder(border);
+            xParts[i] = new DnDParts(15 + 60 * (i%3), 175 + 15*i,25,border,Color.RED, "X");
             xPanel.add(xParts[i]);
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 0;i < 3;i++) {
-            oParts[i] = new JLabel();
-            oParts[i].setOpaque(true);
-            oParts[i].setBounds(15 + 53 * i, 35 - 15*i,100,100);
-            oParts[i].setFont(new Font("MV Boli",Font.BOLD,75));
-            oParts[i].setText("O");
-            oParts[i].setHorizontalAlignment(JLabel.CENTER);
-            oParts[i].setVerticalAlignment(JLabel.CENTER);
-            oParts[i].setBackground(new Color(150,150,150));
-            oParts[i].setForeground(Color.BLUE);
-            oParts[i].setBorder(border);
+            oParts[i] = new DnDParts(15 + 53 * (i%3), 35 - 15*i,75,border,Color.BLUE, "O");
             oPanel.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 3;i < 6;i++) {
-            oParts[i] = new JLabel();
-            oParts[i].setOpaque(true);
-            oParts[i].setBounds(15 + 53 * (i%3), 210 - 15*i,100,100);
-            oParts[i].setFont(new Font("MV Boli",Font.BOLD,50));
-            oParts[i].setText("O");
-            oParts[i].setHorizontalAlignment(JLabel.CENTER);
-            oParts[i].setVerticalAlignment(JLabel.CENTER);
-            oParts[i].setBackground(new Color(150,150,150));
-            oParts[i].setForeground(Color.BLUE);
-            oParts[i].setBorder(border);
+            oParts[i] = new DnDParts(15 + 53 * (i%3), 210 - 15*i,50,border,Color.BLUE, "O");
             oPanel.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
         for (int i = 6;i < 9;i++) {
-            oParts[i] = new JLabel();
-            oParts[i].setOpaque(true);
-            oParts[i].setBounds(15 + 53 * (i%3), 385 - 15*i,100,100);
-            oParts[i].setFont(new Font("MV Boli",Font.BOLD,25));
-            oParts[i].setText("O");
-            oParts[i].setHorizontalAlignment(JLabel.CENTER);
-            oParts[i].setVerticalAlignment(JLabel.CENTER);
-            oParts[i].setBackground(new Color(150,150,150));
-            oParts[i].setForeground(Color.BLUE);
-            oParts[i].setBorder(border);
+            oParts[i] = new DnDParts(15 + 53 * (i%3), 385 - 15*i,25,border,Color.BLUE, "O");
             oPanel.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
@@ -122,6 +68,7 @@ public class AdvanceTicTacToe extends Frame {
             fieldParts[i].setOpaque(true);
             fieldParts[i].setBackground(new Color(0,250,0));
             fieldParts[i].setBorder(border);
+            field.setComponentZOrder(fieldParts[i],0);
             //fieldParts[i].addActionListener(this);
         }
 
