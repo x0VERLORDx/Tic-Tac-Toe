@@ -3,17 +3,28 @@ package window;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
-public class DnDParts extends JLabel {
+public class DnDParts extends JLabel implements MouseListener {
     Point previousPoint = new Point(0,0);
+    public Point currentPoint;
+    public Point startPoint;
     int x;
     int y;
-    DnDParts(int x, int y, int fontSize, Object border, Color color, String text){
+    Point centerPoint;
+    public int index;
+    String text;
+    boolean draggable = true;
+    int fontSize;
+    DnDParts(int x, int y, int fontSize, Object border, Color color, String text, int index){
+        this.index = index;
+        this.text = text;
+        this.fontSize = fontSize;
         this.x = x;
         this.y = y;
+        this.startPoint = new Point(x,y);
         this.setOpaque(true);
         this.setBounds(x, y,100,100);
         this.setHorizontalAlignment(JLabel.CENTER);
@@ -23,26 +34,72 @@ public class DnDParts extends JLabel {
         this.setText(text);
         this.setForeground(color);
         this.setBorder((Border)border);
-        ClickListener clickListener = new ClickListener();
-        this.addMouseListener(clickListener);
+        this.addMouseListener(this);
         DragListener dragListener = new DragListener();
         this.addMouseMotionListener(dragListener);
     }
     public void move(){
         this.setBounds(x, y,100,100);
-    }
-
-    private class ClickListener extends MouseAdapter{
-        public void mousePressed(MouseEvent e){
-            previousPoint = e.getPoint();
-        }
+        centerPoint = new Point(x + 50, y + 50);
+        AdvanceTicTacToe.highLight(centerPoint);
     }
     private class DragListener extends MouseMotionAdapter {
         public void mouseDragged(MouseEvent e){
-            Point currentPoint = e.getPoint();
-            x += (int)(currentPoint.getX() - previousPoint.getX());
-            y += (int)(currentPoint.getY() - previousPoint.getY());
-            move();
+            if (draggable){
+                if (
+                        (text.equals("X") && AdvanceTicTacToe.xTurn) ||
+                        (text.equals("O") && !AdvanceTicTacToe.xTurn)
+                ){
+                    currentPoint = e.getPoint();
+                    x += (int) (currentPoint.getX() - previousPoint.getX());
+                    y += (int) (currentPoint.getY() - previousPoint.getY());
+                    move();
+                }
+            }
         }
     }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        previousPoint = e.getPoint();
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        if (draggable) {
+            if (
+                            (text.equals("X") && AdvanceTicTacToe.xTurn) ||
+                            (text.equals("O") && !AdvanceTicTacToe.xTurn)
+            ) {
+                AdvanceTicTacToe.addElement(index, text, fontSize);
+            }
+        }
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+         if (draggable) {
+             if (
+                     (text.equals("X") && AdvanceTicTacToe.xTurn) ||
+                             (text.equals("O") && !AdvanceTicTacToe.xTurn)
+             ) {
+                 this.setSize(133, 133);
+             }
+         }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if (draggable) {
+            if (
+                    (text.equals("X") && AdvanceTicTacToe.xTurn) ||
+                            (text.equals("O") && !AdvanceTicTacToe.xTurn)
+            ) {
+                this.setSize(100, 100);
+            }
+        }    }
 }

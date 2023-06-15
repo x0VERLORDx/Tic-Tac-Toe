@@ -12,13 +12,13 @@ public abstract class Frame extends JFrame implements ActionListener {
     JPanel title_panel = new JPanel();
     JPanel button_panel = new JPanel();
     JButton[] buttons;
-    JLabel textField = new JLabel();
+    static JLabel textField = new JLabel();
     JPanel score_panel = new JPanel();
-    JLabel scoreField = new JLabel();
+    static JLabel scoreField = new JLabel();
     JButton resetButton = new JButton();
 
-    int xWin = 0;
-    int oWin = 0;
+    static int xWin = 0;
+    static int oWin = 0;
     public Frame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
@@ -85,7 +85,6 @@ public abstract class Frame extends JFrame implements ActionListener {
         score_panel.add(resetButton);
         frame.add(score_panel,BorderLayout.SOUTH);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
