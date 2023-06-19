@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="made DnDParts draggable">
-      <change afterPath="$PROJECT_DIR$/src/window/AdvanceFieldParts.java" afterDir="false" />
+    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="add game logic too AdvanceTicTacToe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/DnDParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/DnDParts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/Frame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -135,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686768197517</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add game logic too AdvanceTicTacToe">
+      <created>1686845905947</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686845905947</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +166,7 @@
     <MESSAGE value="AdvanceTicTacToe add side panels" />
     <MESSAGE value="add DnDParts" />
     <MESSAGE value="made DnDParts draggable" />
-    <option name="LAST_COMMIT_MESSAGE" value="made DnDParts draggable" />
+    <MESSAGE value="add game logic too AdvanceTicTacToe" />
+    <option name="LAST_COMMIT_MESSAGE" value="add game logic too AdvanceTicTacToe" />
   </component>
 </project>

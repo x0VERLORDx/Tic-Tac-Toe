@@ -65,7 +65,7 @@ public class AdvanceTicTacToe extends Frame {
        //
 
 
-        for (int i =0;i<9;i++) {
+        for (int i = 0; i < 9; i++) {
             fieldParts[i] = new AdvanceFieldParts();
             field.add(fieldParts[i]);
         }
@@ -139,7 +139,6 @@ public class AdvanceTicTacToe extends Frame {
             fieldParts[highLightedPanel].add(xParts[i], Integer.valueOf(fontSize/25));
             fieldParts[highLightedPanel].setText("X");
             xParts[i].draggable = false;
-            AdvanceTicTacToe.xTurn = !AdvanceTicTacToe.xTurn;
             highLightedPanel = -1;
             playZone.remove(xParts[i]);
             Check();
@@ -150,7 +149,6 @@ public class AdvanceTicTacToe extends Frame {
             fieldParts[highLightedPanel].add(oParts[i], Integer.valueOf(fontSize / 25));
             fieldParts[highLightedPanel].setText("O");
             oParts[i].draggable = false;
-            AdvanceTicTacToe.xTurn = !AdvanceTicTacToe.xTurn;
             highLightedPanel = -1;
             playZone.remove(oParts[i]);
             Check();
@@ -158,6 +156,7 @@ public class AdvanceTicTacToe extends Frame {
 
     }
     public static void Check(){
+        turn();
         if(
                 fieldParts[0].getText().equals(fieldParts[1].getText()) &&
                         fieldParts[0].getText().equals(fieldParts[2].getText())&&!fieldParts[0].getText().isEmpty()
@@ -206,7 +205,32 @@ public class AdvanceTicTacToe extends Frame {
         ) {
             whoWins();
         }
-        //Turn();
+
+    }
+    public static void turn(){
+        if (!xTurn){
+            if (!xParts[0].draggable && !xParts[1].draggable && !xParts[2].draggable) {
+                for (int i = 0; i < 9; i++) {
+                    if (fieldParts[i].getComponentCountInLayer(2) == 0) {
+                        AdvanceTicTacToe.xTurn = true;
+                        textField.setText("X turn");
+                    }
+                }
+            }else {
+                AdvanceTicTacToe.xTurn = true;
+                textField.setText("X turn");
+            }
+        }else if (!oParts[0].draggable && !oParts[1].draggable && !oParts[2].draggable) {
+            for (int i = 0; i < 9; i++) {
+                if (fieldParts[i].getComponentCountInLayer(2) == 0) {
+                    AdvanceTicTacToe.xTurn = false;
+                    textField.setText("O turn");
+                }
+            }
+        }else {
+            AdvanceTicTacToe.xTurn = false;
+            textField.setText("O turn");
+        }
     }
 
     public static void whoWins(){
@@ -265,6 +289,8 @@ public class AdvanceTicTacToe extends Frame {
                 playZone.add(xParts[8-i],Integer.valueOf(5));
                 playZone.add(oParts[i],Integer.valueOf(5));
             }
+            turn();
+            turn();
             try {
                 Sounds.playResetSound();
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
