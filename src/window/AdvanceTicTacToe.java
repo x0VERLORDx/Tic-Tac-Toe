@@ -141,7 +141,12 @@ public class AdvanceTicTacToe extends Frame {
             xParts[i].draggable = false;
             highLightedPanel = -1;
             playZone.remove(xParts[i]);
-            Check();
+            try {
+                Sounds.playXSound();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                throw new RuntimeException(ex);
+            }
+            check();
         }else {
             oParts[i].setVisible(false);
             oParts[i].setVisible(true);
@@ -151,11 +156,16 @@ public class AdvanceTicTacToe extends Frame {
             oParts[i].draggable = false;
             highLightedPanel = -1;
             playZone.remove(oParts[i]);
-            Check();
+            try {
+                Sounds.playOSound();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                throw new RuntimeException(ex);
+            }
+            check();
         }
 
     }
-    public static void Check(){
+    public static void check(){
         turn();
         if(
                 fieldParts[0].getText().equals(fieldParts[1].getText()) &&
@@ -205,7 +215,6 @@ public class AdvanceTicTacToe extends Frame {
         ) {
             whoWins();
         }
-
     }
     public static void turn(){
         if (!xTurn){
@@ -232,7 +241,6 @@ public class AdvanceTicTacToe extends Frame {
             textField.setText("O turn");
         }
     }
-
     public static void whoWins(){
         try {
             Sounds.playWinSound();
@@ -254,7 +262,6 @@ public class AdvanceTicTacToe extends Frame {
             xParts[i].draggable = false;
         }
         textField.setText("X wins");
-
     }
     public static void oWins() {
         oWin++;

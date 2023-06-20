@@ -8,12 +8,11 @@ public class StartScreen extends Frame {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttons[0]) {
-            this.frame.setVisible(false);
             new TicTacToe();
         }
         if (e.getSource() == buttons[1]) {
-            this.frame.setVisible(false);
             new AdvanceTicTacToe();
         }
+        frame.dispose();
     }
 }
