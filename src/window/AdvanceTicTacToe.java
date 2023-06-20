@@ -11,8 +11,8 @@ public class AdvanceTicTacToe extends Frame {
     Border border = BorderFactory.createLineBorder(new Color(50, 50, 50),1);
     JPanel field = new JPanel();
     public static AdvanceFieldParts[] fieldParts = new AdvanceFieldParts[9];
-    static DnDParts[] xParts = new DnDParts[9];
-    static DnDParts[] oParts = new DnDParts[9];
+    static DnDParts[] xParts = new DnDParts[6];
+    static DnDParts[] oParts = new DnDParts[6];
     static JLayeredPane playZone = new JLayeredPane();
     static int highLightedPanel = -1;
     static boolean xTurn = true;
@@ -24,35 +24,24 @@ public class AdvanceTicTacToe extends Frame {
 
         playZone.setVisible(true);
         playZone.setBounds(0,100,900,440);
-
-
-        for (int i = 2;i >= 0;i--) {
-            xParts[i] = new DnDParts(15 + 60 * i, 5 + 15*i,75,border,Color.RED, "X", i);
+        for (int i = 0;i < 2;i++) {
+            xParts[i] = new DnDParts(15 + 110 * i, 16 ,75,border,Color.RED, "X", i);
             playZone.add(xParts[i]);
-            //fieldParts[i].addActionListener(this);
-        }
-        for (int i = 5;i > 2;i--) {
-            xParts[i] = new DnDParts(15 + 60 * (i%3), 90 + 15*i,50,border,Color.RED, "X", i);
-            playZone.add(xParts[i]);
-            //fieldParts[i].addActionListener(this);
-        }
-        for (int i = 8;i > 5;i--) {
-            xParts[i] = new DnDParts(15 + 60 * (i%3), 175 + 15*i,25,border,Color.RED, "X", i);
-            playZone.add(xParts[i]);
-            //fieldParts[i].addActionListener(this);
-        }
-        for (int i = 0;i < 3;i++) {
-            oParts[i] = new DnDParts(665 + 53 * (i%3), 35 - 15*i,75,border,Color.BLUE, "O", i);
+            oParts[i] = new DnDParts(665 + 110 * (i%2), 16,75,border,Color.BLUE, "O", i);
             playZone.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
-        for (int i = 3;i < 6;i++) {
-            oParts[i] = new DnDParts(665 + 53 * (i%3), 210 - 15*i,50,border,Color.BLUE, "O", i);
+        for (int i = 2;i < 4;i++) {
+            xParts[i] = new DnDParts(15 + 110 * (i%2), 146,50,border,Color.RED, "X", i);
+            playZone.add(xParts[i]);
+            oParts[i] = new DnDParts(665 + 110 * (i%2), 146,50,border,Color.BLUE, "O", i);
             playZone.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
-        for (int i = 6;i < 9;i++) {
-            oParts[i] = new DnDParts(665 + 53 * (i%3), 385 - 15*i,25,border,Color.BLUE, "O", i);
+        for (int i = 4;i < 6;i++) {
+            xParts[i] = new DnDParts(15 + 110 * (i%2), 282,25,border,Color.RED, "X", i);
+            playZone.add(xParts[i]);
+            oParts[i] = new DnDParts(665 + 110 * (i%2), 282,25,border,Color.BLUE, "O", i);
             playZone.add(oParts[i]);
             //fieldParts[i].addActionListener(this);
         }
@@ -256,7 +245,7 @@ public class AdvanceTicTacToe extends Frame {
     public static void xWins() {
         xWin++;
         scoreField.setText("X " + xWin + " : " + oWin + " O");
-        for(int i=0;i<9;i++) {
+        for(int i = 0; i < 6; i++) {
             fieldParts[i].setForeground(Color.GRAY);
             oParts[i].draggable = false;
             xParts[i].draggable = false;
@@ -266,7 +255,7 @@ public class AdvanceTicTacToe extends Frame {
     public static void oWins() {
         oWin++;
         scoreField.setText("X " + xWin + " : " + oWin + " O");
-        for(int i=0;i<9;i++) {
+        for(int i = 0; i < 6; i++) {
             fieldParts[i].setForeground(Color.GRAY);
             oParts[i].draggable = false;
             xParts[i].draggable = false;
@@ -275,28 +264,33 @@ public class AdvanceTicTacToe extends Frame {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==resetButton){
-            for (int i = 0; i < 9; i++) {
-                fieldParts[i].setBackground(Color.GREEN);
-                fieldParts[i].setText("");
-                oParts[i].draggable = true;
-                xParts[8-i].draggable = true;
-                for (int j = 0; j < 9; j++){
+        if (e.getSource()==resetButton) {
+            int i;
+            for (i = 0; i < 9; i++) {
+                for (int j = 0; j < 6; j++) {
                     fieldParts[i].remove(oParts[j]);
                     fieldParts[i].remove(xParts[j]);
                 }
-                xParts[8-i].setBounds((int) xParts[8-i].startPoint.getX(), (int) xParts[8-i].startPoint.getY(),100,100);
+                fieldParts[i].setText("");
+                fieldParts[i].setBackground(Color.WHITE);
+                fieldParts[i].setBackground(Color.GREEN);
+
+            }
+            for (i = 0; i < 6; i++){
+                oParts[i].draggable = true;
+                xParts[i].draggable = true;
+                xParts[i].setBounds((int) xParts[i].startPoint.getX(), (int) xParts[i].startPoint.getY(),100,100);
                 oParts[i].setBounds((int) oParts[i].startPoint.getX(), (int) oParts[i].startPoint.getY(),100,100);
                 oParts[i].setVisible(false);
-                xParts[8-i].setVisible(false);
+                xParts[i].setVisible(false);
                 oParts[i].setVisible(true);
-                xParts[8-i].setVisible(true);
-                playZone.remove(xParts[8-i]);
+                xParts[i].setVisible(true);
+                playZone.remove(xParts[i]);
                 playZone.remove(oParts[i]);
-                playZone.add(xParts[8-i],Integer.valueOf(5));
+                playZone.add(xParts[i],Integer.valueOf(5));
                 playZone.add(oParts[i],Integer.valueOf(5));
             }
-            turn();
+                turn();
             turn();
             try {
                 Sounds.playResetSound();
@@ -304,5 +298,6 @@ public class AdvanceTicTacToe extends Frame {
                 throw new RuntimeException(ex);
             }
         }
+        repaint();
     }
 }
