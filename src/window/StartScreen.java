@@ -13,6 +13,6 @@ public class StartScreen extends Frame {
         if (e.getSource() == buttons[1]) {
             new AdvanceTicTacToe();
         }
-        frame.dispatchEvent(e);
+        frame.dispose();
     }
 }

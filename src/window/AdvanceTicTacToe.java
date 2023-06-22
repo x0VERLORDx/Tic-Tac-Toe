@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class AdvanceTicTacToe extends Frame {
+    JButton menu = new JButton();
     Border border = BorderFactory.createLineBorder(new Color(50, 50, 50),1);
     JPanel field = new JPanel();
     public static AdvanceFieldParts[] fieldParts = new AdvanceFieldParts[9];
@@ -20,6 +21,14 @@ public class AdvanceTicTacToe extends Frame {
         frame.setLayout(null);
         frame.setSize(900, 640);
         createScorePanel(900);
+        menu.setFont(new Font("MV Boli",Font.BOLD,20));
+        menu.setText("MENU");
+        menu.setFocusable(false);
+        menu.setBounds(725, 20, 100, 60);
+        menu.addActionListener(this);
+        title_panel.setLayout(null);
+        title_panel.add(menu);
+        title_panel.setBackground(new Color(25,25,25));
 
 
         playZone.setVisible(true);
@@ -264,6 +273,11 @@ public class AdvanceTicTacToe extends Frame {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==menu){
+            new StartScreen();
+            frame.dispose();
+
+        }
         if (e.getSource()==resetButton) {
             int i;
             for (i = 0; i < 9; i++) {

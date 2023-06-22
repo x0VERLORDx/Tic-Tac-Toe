@@ -8,17 +8,38 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 public class TicTacToe extends Frame {
     boolean xTurn = true;
+    JButton menu = new JButton();
     public TicTacToe(){
-        frame.setLayout(new BorderLayout());
+        frame.setLayout(null);
+        frame.setSize(600,630);
         createScorePanel(600);
         createButtons(9,75);
-        frame.add(title_panel,BorderLayout.NORTH);
-        frame.add(button_panel,BorderLayout.CENTER);
+        menu.setFont(new Font("MV Boli",Font.BOLD,15));
+        menu.setText("MENU");
+        menu.setFocusable(false);
+        menu.setVisible(true);
+        menu.setBounds(450, 20, 90, 60);
+        menu.addActionListener(this);
+        title_panel.setLayout(null);
+        title_panel.setBounds(0,0,600,100);
+        title_panel.setBackground(new Color(25,25,25));
+        title_panel.add(menu);
+
+        textField.setBounds(0,0,450,100);
+        button_panel.setBounds(100,100,400,400);
+        score_panel.setBounds(0,500,600,100);
+       // frame.add(title_panel);
+        frame.add(button_panel);
+        frame.add(score_panel);
         Turn();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==menu){
+            frame.dispose();
+            new StartScreen();
+        }
 
         if (e.getSource()==resetButton){
             for (int i = 0; i < 9; i++) {
