@@ -41,7 +41,6 @@ public class DnDParts extends JLabel implements MouseListener {
     public void move(){
         this.setBounds(x, y,100,100);
         centerPoint = new Point(x + 50, y + 50);
-        AdvanceTicTacToe.highLight(centerPoint);
     }
     private class DragListener extends MouseMotionAdapter {
         public void mouseDragged(MouseEvent e){
@@ -70,14 +69,7 @@ public class DnDParts extends JLabel implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (draggable) {
-            if (
-                            (text.equals("X") && AdvanceTicTacToe.xTurn) ||
-                            (text.equals("O") && !AdvanceTicTacToe.xTurn)
-            ) {
-                AdvanceTicTacToe.addElement(index, text, fontSize);
-            }
-        }
+
     }
 
     @Override

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="Change game logic in AdvanceTicTacToe">
+    <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="fix menu button bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/StartScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window/DnDParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/DnDParts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,6 +213,7 @@
     <MESSAGE value="modify turn method" />
     <MESSAGE value="add sound to AdvanceTicTacToe" />
     <MESSAGE value="Change game logic in AdvanceTicTacToe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change game logic in AdvanceTicTacToe" />
+    <MESSAGE value="fix menu button bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix menu button bugs" />
   </component>
 </project>

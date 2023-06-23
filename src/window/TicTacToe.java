@@ -37,6 +37,10 @@ public class TicTacToe extends Frame {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==menu){
+            for (int i = 0; i < 9; i++) {
+                buttons[i].setEnabled(true);
+                buttons[i].setText("");
+            }
             frame.dispose();
             new StartScreen();
         }
@@ -78,7 +82,6 @@ public class TicTacToe extends Frame {
             }
         }
         Check();
-
     }
     public void Turn(){
         if (xTurn){
