@@ -62,21 +62,23 @@ public class TicTacToe extends Frame {
                     if (xTurn){
                         button.setForeground(new Color(255,0,0));
                         button.setText("X");
+                        xTurn = false;
                         try {
                             Sounds.playXSound();
                         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                             throw new RuntimeException(ex);
                         }
-                        xTurn = false;
+
                     }else{
                         button.setForeground(new Color(0,0,255));
                         button.setText("O");
+                        xTurn = true;
                         try {
                             Sounds.playOSound();
                         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                             throw new RuntimeException(ex);
                         }
-                        xTurn = true;
+
                     }
                 }
             }
@@ -142,15 +144,16 @@ public class TicTacToe extends Frame {
         Turn();
     }
     public void whoWins(){
-        try {
-            Sounds.playWinSound();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-            throw new RuntimeException(ex);
-        }
+
         if (!xTurn){
             xWins();
         }else {
             oWins();
+        }
+        try {
+            Sounds.playWinSound();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            throw new RuntimeException(ex);
         }
     }
     public void xWins() {

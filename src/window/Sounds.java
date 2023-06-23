@@ -1,25 +1,20 @@
 package window;
 
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Objects;
+import java.net.URL;
 
 public class Sounds {
-    public static File oSound;
-    private static final File xSound;
-    private static final File resetSound;
-    private static final File winSound;
+    public static URL oSound;
+    private static final URL xSound;
+    private static final URL resetSound;
+    private static final URL winSound;
     static {
-        try {
-            oSound = new File(Objects.requireNonNull(Sounds.class.getResource("/oSound2.wav")).toURI());
-            xSound = new File(Objects.requireNonNull(Sounds.class.getResource("/xSound2.wav")).toURI());
-            resetSound = new File(Objects.requireNonNull(Sounds.class.getResource("/resetSound3.wav")).toURI());
-            winSound = new File(Objects.requireNonNull(Sounds.class.getResource("/winSound.wav")).toURI());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        oSound = Sounds.class.getResource("/oSound2.wav");
+        // oSound = new File(Objects.requireNonNull(Sounds.class.getResource("/oSound2.wav")).toURI());
+        xSound = Sounds.class.getResource("/xSound2.wav");
+        resetSound = Sounds.class.getResource("/resetSound3.wav");
+        winSound = Sounds.class.getResource("/winSound.wav");
     }
     public static void playXSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(xSound);

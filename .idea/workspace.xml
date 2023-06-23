@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Tic-Tac-Toe Game:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e27a875a-cbe8-4b20-94c5-2faa9f9933e8" name="Changes" comment="fix menu button bugs">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Tic_Tac_Toe_Game_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/AdvanceTicTacToe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/DnDParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/DnDParts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/Sounds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +44,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/OVERLORD/IdeaProjects/Tic-Tac-Toe Game/src&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/OVERLORD/IdeaProjects/Tic-Tac-Toe Game/src&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RecentsManager">
